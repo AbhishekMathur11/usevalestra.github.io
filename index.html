@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valestra - Automated Robotics Code Validation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .accent-color {
+            color: #00f5d4; /* A vibrant mint green/teal */
+        }
+        .bg-accent {
+            background-color: #00f5d4;
+        }
+        .border-accent {
+            border-color: #00f5d4;
+        }
+        .hero-glow {
+            box-shadow: 0 0 40px rgba(0, 245, 212, 0.3), 0 0 80px rgba(0, 245, 212, 0.2);
+        }
+        .icon-glow {
+             filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.5));
+        }
+        .diagram-arrow {
+            position: absolute;
+            top: 50%;
+            right: -2.5rem; /* Adjust based on icon size and gap */
+            transform: translateY(-50%);
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+
+        <!-- Header/Hero Section -->
+        <header class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-4">
+                Valestra validates robotics code at <span class="accent-color">machine speed</span>.
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-8">
+                We automatically detect task dependencies, parameters, and metrics, then generate unit tests, simulate failure modes, record KPIs, and deliver insight for rapid iteration—securely on-premise.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#" class="w-full sm:w-auto inline-block bg-accent text-black font-bold py-3 px-8 rounded-lg text-lg hero-glow transition-transform duration-300 ease-in-out hover:scale-105">
+                    Request a Demo
+                </a>
+            </div>
+             <div class="mt-6 text-xs text-slate-500 tracking-wider space-x-4">
+                <span>ENTERPRISE READY</span>
+                <span>•</span>
+                <span>SECURE BY DESIGN</span>
+                <span>•</span>
+                <span>ISO BENCHMARK ALIGNED</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="w-full max-w-6xl mx-auto mt-20 md:mt-32">
+
+            <!-- Benefits Section -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+                <!-- Benefit 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="mb-4 p-3 rounded-full bg-slate-800 border border-slate-700">
+                        <i data-lucide="bot" class="w-8 h-8 accent-color icon-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-100">Automated Test Generation</h3>
+                    <p class="text-slate-400">Generate comprehensive unit tests and simulate complex failure modes automatically, covering edge cases you might miss.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="mb-4 p-3 rounded-full bg-slate-800 border border-slate-700">
+                        <i data-lucide="bar-chart-3" class="w-8 h-8 accent-color icon-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-100">KPI-Rich Analytics</h3>
+                    <p class="text-slate-400">Gain deep insights with performance metrics and KPI tracking, benchmarked against ISO standards for robotics safety and reliability.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="mb-4 p-3 rounded-full bg-slate-800 border border-slate-700">
+                        <i data-lucide="shield-check" class="w-8 h-8 accent-color icon-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-100">Secure On-Premise Deployment</h3>
+                    <p class="text-slate-400">Keep your sensitive codebase within your firewall. Valestra operates entirely on-premise, reducing risk and ensuring data privacy.</p>
+                </div>
+            </section>
+
+            <!-- Visual Diagram Section -->
+            <section class="mt-20 md:mt-32">
+                <div class="w-full max-w-5xl mx-auto">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 text-center">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center relative">
+                            <div class="w-16 h-16 flex items-center justify-center bg-slate-900 border-2 border-slate-700 rounded-full mb-3">
+                                <i data-lucide="code-2" class="w-8 h-8 text-slate-400"></i>
+                            </div>
+                            <p class="font-semibold text-slate-200">Codebase Analysis</p>
+                            <div class="hidden md:block diagram-arrow">
+                                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center relative md:col-start-2">
+                             <div class="w-16 h-16 flex items-center justify-center bg-slate-900 border-2 border-slate-700 rounded-full mb-3">
+                                <i data-lucide="file-cog" class="w-8 h-8 text-slate-400"></i>
+                            </div>
+                            <p class="font-semibold text-slate-200">Test Generation</p>
+                            <div class="hidden md:block diagram-arrow">
+                                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center relative md:col-start-3">
+                             <div class="w-16 h-16 flex items-center justify-center bg-slate-900 border-2 border-slate-700 rounded-full mb-3">
+                                <i data-lucide="cpu" class="w-8 h-8 text-slate-400"></i>
+                            </div>
+                            <p class="font-semibold text-slate-200">Simulation & Logging</p>
+                             <div class="hidden md:block diagram-arrow">
+                                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flex flex-col items-center relative md:col-start-4">
+                             <div class="w-16 h-16 flex items-center justify-center bg-slate-900 border-2 border-slate-700 rounded-full mb-3">
+                                <i data-lucide="layout-dashboard" class="w-8 h-8 text-slate-400"></i>
+                            </div>
+                            <p class="font-semibold text-slate-200">Insights Dashboard</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
