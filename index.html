@@ -41,12 +41,16 @@
             transform: translateY(-50%);
             color: #4a5568;
         }
+        /* Page transition styles */
+        .page {
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Main Container -->
-    <div class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+    <!-- Main Page Container -->
+    <div id="main-page" class="page min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-10">
 
         <!-- Header/Hero Section -->
         <header class="text-center max-w-4xl mx-auto">
@@ -57,9 +61,10 @@
                 We automatically detect task dependencies, parameters, and metrics, then generate unit tests, simulate failure modes, record KPIs, and deliver insight for rapid iteration—securely on-premise.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#" class="w-full sm:w-auto inline-block bg-accent text-black font-bold py-3 px-8 rounded-lg text-lg hero-glow transition-transform duration-300 ease-in-out hover:scale-105">
+                <!-- Updated Button to switch pages -->
+                <button onclick="showPage('demo-page')" class="w-full sm:w-auto inline-block bg-accent text-black font-bold py-3 px-8 rounded-lg text-lg hero-glow transition-transform duration-300 ease-in-out hover:scale-105">
                     Request a Demo
-                </a>
+                </button>
             </div>
              <div class="mt-6 text-xs text-slate-500 tracking-wider space-x-4">
                 <span>ENTERPRISE READY</span>
@@ -148,9 +153,76 @@
         </main>
     </div>
 
+    <!-- Demo Request Page Container (Initially Hidden) -->
+    <div id="demo-page" class="page min-h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-10" style="display: none; opacity: 0;">
+        <div class="text-center max-w-xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-black tracking-tighter mb-3">Join the Valestra Waitlist</h2>
+            <p class="text-lg text-slate-400 mb-8">Get notified when our demo is ready and receive exclusive updates on our progress. No spam, ever.</p>
+            
+            <!-- This is a sample form. You would replace the action with your email provider's endpoint. -->
+            <form action="#" method="POST" class="w-full max-w-md mx-auto" onsubmit="handleFormSubmit(event)">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" name="email" placeholder="you@company.com" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none transition">
+                    <button type="submit" class="w-full sm:w-auto bg-accent text-black font-bold py-3 px-8 rounded-lg text-lg hero-glow transition-transform duration-300 ease-in-out hover:scale-105">
+                        Join Waitlist
+                    </button>
+                </div>
+            </form>
+
+            <div id="form-success-message" class="mt-4 text-green-400" style="display: none;">
+                Thank you for subscribing! We'll be in touch.
+            </div>
+
+            <button onclick="showPage('main-page')" class="mt-12 text-slate-400 hover:text-accent-color transition-colors duration-200 flex items-center mx-auto gap-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Go Back
+            </button>
+        </div>
+    </div>
+
+
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
+
+        const mainPage = document.getElementById('main-page');
+        const demoPage = document.getElementById('demo-page');
+
+        function showPage(pageId) {
+            if (pageId === 'demo-page') {
+                // Fade out main page
+                mainPage.style.opacity = '0';
+                setTimeout(() => {
+                    mainPage.style.display = 'none';
+                    // Fade in demo page
+                    demoPage.style.display = 'flex';
+                    setTimeout(() => {
+                        demoPage.style.opacity = '1';
+                    }, 50); // small delay to ensure display:flex is applied before opacity change
+                }, 500); // matches the transition duration
+            } else {
+                // Fade out demo page
+                demoPage.style.opacity = '0';
+                setTimeout(() => {
+                    demoPage.style.display = 'none';
+                    // Fade in main page
+                    mainPage.style.display = 'flex';
+                    setTimeout(() => {
+                        mainPage.style.opacity = '1';
+                    }, 50);
+                }, 500);
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+            const form = event.target;
+            const successMessage = document.getElementById('form-success-message');
+            
+            // Hide the form and show the success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+        }
     </script>
 
 </body>
