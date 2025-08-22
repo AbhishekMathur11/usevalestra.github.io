@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Demo - Valestra</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .accent-color {
+            color: #00f5d4;
+        }
+        .bg-accent {
+            background-color: #00f5d4;
+        }
+        .border-accent {
+            border-color: #00f5d4;
+        }
+        .hero-glow {
+            box-shadow: 0 0 40px rgba(0, 245, 212, 0.3), 0 0 80px rgba(0, 245, 212, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Demo Request Page Container -->
+    <div class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+        <div class="text-center max-w-xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-black tracking-tighter mb-3">Join the Valestra Waitlist</h2>
+            <p class="text-lg text-slate-400 mb-8">Get notified when our demo is ready and receive exclusive updates on our progress. No spam, ever.</p>
+            
+            <!-- This is a sample form. You would replace the action with your email provider's endpoint. -->
+            <form action="#" method="POST" class="w-full max-w-md mx-auto" onsubmit="handleFormSubmit(event)">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" name="email" placeholder="you@company.com" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent focus:outline-none transition">
+                    <button type="submit" class="w-full sm:w-auto bg-accent text-black font-bold py-3 px-8 rounded-lg text-lg hero-glow transition-transform duration-300 ease-in-out hover:scale-105">
+                        Join Waitlist
+                    </button>
+                </div>
+            </form>
+
+            <div id="form-success-message" class="mt-4 text-green-400" style="display: none;">
+                Thank you for subscribing! We'll be in touch.
+            </div>
+
+            <!-- Link back to the main page (index.html) -->
+            <a href="index.html" class="mt-12 text-slate-400 hover:text-accent-color transition-colors duration-200 flex items-center mx-auto gap-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Go Back
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent the form from actually submitting for this demo
+            const form = event.target;
+            const successMessage = document.getElementById('form-success-message');
+            
+            // Hide the form and show the success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
